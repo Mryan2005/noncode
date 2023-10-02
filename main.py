@@ -26,17 +26,17 @@ while True:
         end = len(step)-1
         step.remove(step[end])
         try:
-            file = open('.\\save\\'+ text[4:] +'.uncode','r')
+            file = open('.\\save\\'+ text[4:] +'.noncode','r')
             print("存在文件是否要覆盖(y or n): ",end='')
             choose = input()
             if choose == 'y' or choose == 'Y':
-                file = open('.\\save\\'+ text[4:] +'.uncode','w')
+                file = open('.\\save\\'+ text[4:] +'.noncode','w')
             elif choose == 'n' or choose == 'N':
                 print("请重新输入文件名",end='')
                 fileName = input()
-                file = open('.\\save\\'+ fileName +'.uncode','w')
+                file = open('.\\save\\'+ fileName +'.noncode','w')
         except FileNotFoundError:
-            file = open('.\\save\\'+text[4:]+'.uncode','w')
+            file = open('.\\save\\'+text[4:]+'.noncode','w')
             for i in step:
                 file.write(i+'\n')
         break
