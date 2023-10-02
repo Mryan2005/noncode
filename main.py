@@ -6,7 +6,7 @@ tab = 0
 tabs = []
 position = 0 # 0 就是本位的意思
 
-print("欢迎使用uncode")
+print("欢迎使用noncode")
 print("请开始输入")
 
 
