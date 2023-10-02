@@ -2,9 +2,15 @@ import os,sys
 print("欢迎使用uncode")
 print("请开始输入")
 step = []
+tab = 0
+step.append("start")
 while True:
     text = input("")
-    step.append(text)
+    if "if:" in text  or "while:" in text:
+        step.append('   '*tab+text)
+        tab = tab + 1
+    else:
+        step.append('   '*tab+text)
     if ':wq' in text:
         end = len(step)-1
         step.remove(step[end])
