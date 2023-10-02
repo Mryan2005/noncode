@@ -1,17 +1,29 @@
 import os,sys
-print("欢迎使用uncode")
-print("请开始输入")
+
+# init values
 step = []
 tab = 0
+position = 0 # 0 就是本位的意思
+
+print("欢迎使用uncode")
+print("请开始输入")
+
+
 step.append("start")
 while True:
     text = input("")
-    if "if:" in text  or "while:" in text:
-        step.append('   '*tab+text)
-        tab = tab + 1
-    else:
-        step.append('   '*tab+text)
-    if ':wq' in text:
+    if ':back' in text:
+        try:
+            position = position + int(text[5:])
+        except ValueError:
+            position = position + 1
+        finally:
+            continue
+    if position >= 1:
+        needChangePosition  = len(step) - position
+        step[needChangePosition] = text
+        position = 0
+    elif ':wq' in text:
         end = len(step)-1
         step.remove(step[end])
         try:
@@ -29,3 +41,9 @@ while True:
             for i in step:
                 file.write(i+'\n')
         break
+    elif "if:" in text  or "while:" in text:
+        step.append('   '*tab+text)
+        tab = tab + 1
+    else:
+        step.append('   '*tab+text)
+    
