@@ -1,4 +1,4 @@
-import os,sys
+import sys
 
 # init values
 step = []
@@ -40,7 +40,7 @@ while True:
             for i in step:
                 file.write(i+'\n')
         break
-    
+
     # check input
     if position >= 1:
         needChangePosition  = len(step) - position
@@ -53,4 +53,3 @@ while True:
     else:
         step.append('   '*tab+text)
         tabs.append(tab)
-    
